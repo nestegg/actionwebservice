@@ -228,7 +228,7 @@ module ActionWebService
         methods = service.api_methods_full.sort {|a, b| a[1] <=> b[1]}.map do |desc, name|
           content_tag("li", link_to(name, :action => action, :service => service.name, :method => name))
         end
-        content_tag("ul", methods.join("\n"))
+        content_tag("ul", methods.join("\n").html_safe)
       end
     end
 
