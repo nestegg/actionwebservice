@@ -179,12 +179,12 @@ module ActionWebService
               true)
             if member_type.custom?
               parameters << content_tag('li', label)
-              parameters << content_tag('ul', nested_content)
+              parameters << content_tag('ul', nested_content.html_safe)
             else
-              parameters << content_tag('li', label + ' ' + nested_content)
+              parameters << content_tag('li', (label + ' ' + nested_content).html_safe)
             end
           end
-          content_tag('ul', parameters)
+          content_tag('ul', parameters.html_safe)
         else
           # If the data source was structured previously we already have the index set          
           field_name_base = "#{field_name_base}[#{idx}]" unless was_structured
