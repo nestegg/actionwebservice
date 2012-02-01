@@ -3,6 +3,10 @@ require 'action_web_service/protocol/soap_protocol/marshaler'
 require 'soap/streamHandler'
 require 'action_web_service/client/soap_client'
 
+SOAP::SOAPNamespaceTag = 'env' unless defined?(SOAP::SOAPNamespaceTag)
+SOAP::XSDNamespaceTag  = 'xsd' unless defined?(SOAP::XSDNamespaceTag)
+SOAP::XSINamespaceTag  = 'xsi' unless defined?(SOAP::XSINamespaceTag)
+
 module ActionWebService # :nodoc:
   module API # :nodoc:
     class Base # :nodoc:
