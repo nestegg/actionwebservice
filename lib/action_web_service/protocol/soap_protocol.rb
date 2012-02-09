@@ -116,7 +116,8 @@ module ActionWebService # :nodoc:
                 marshaler.ruby_to_soap(detail))
             else
               if return_type
-                param_def = [['retval', 'return', marshaler.lookup_type(return_type).mapping]]
+                # TODO: How do we get n1 below programatically?
+                param_def = [['retval', 'n1:' + return_type.name.to_s, marshaler.lookup_type(return_type).mapping]]
                 response = SOAP::RPC::SOAPMethodResponse.new(qname, param_def)
                 response.retval = marshaler.ruby_to_soap(return_value)
               else
